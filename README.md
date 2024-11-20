@@ -94,30 +94,79 @@ SELECT MAX(total_laid_off), MAX(percentage_laid_off) FROM layoffs_staging2;
 #### **2. Grouping Data by Company and Industry**
 - Grouped total layoffs by company and industry.
 
-  ```sql
+```sql
 SELECT company, SUM(total_laid_off)
 FROM layoffs_staging2
 GROUP BY company
 ORDER BY 2 DESC;
 ```
-
 ---
+#### **3. Analyzing Layoffs by Year**
+- Analyzed layoffs by year.
+```sql
+SELECT YEAR(date), SUM(total_laid_off)
+FROM layoffs_staging2
+GROUP BY YEAR(date)
+ORDER BY 1 DESC;
 
-#### **ff**
-
+```
 ---
-## **Tableau Dashboard - Layoffs Analysis - Project Overview**
-The **Tableau Dashboard** project involves visualizing the layoffs data using Tableau to create a dynamic and interactive dashboard.
+#### **4. Exploring Monthly Layoffs**
+- Investigated layoffs by month.
+```sql
+SELECT SUBSTRING(date, 1, 7) AS `MONTH`, SUM(total_laid_off)
+FROM layoffs_staging2
+WHERE SUBSTRING(date, 1, 7) IS NOT NULL
+GROUP BY `MONTH`
+ORDER BY 1 ASC;
 
+```
+---
+#### **5. Rolling Total of Layoffs**
+- Created a rolling total to track cumulative layoffs over time.
+```sql
+WITH Rolling_Total AS
+(
+  SELECT SUBSTRING(date, 1, 7) AS `MONTH`, SUM(total_laid_off) AS total_off
+  FROM layoffs_staging2
+  WHERE SUBSTRING(date, 1, 7) IS NOT NULL
+  GROUP BY `MONTH`
+  ORDER BY 1 ASC
+)
+SELECT `MONTH`, total_off,
+       SUM(total_off) OVER(ORDER BY `MONTH`) AS rolling_total
+FROM Rolling_Total;
+
+```
+---
+---
+## **Project 3:**
+## **Project 3: Tableau Dashboard - Layoffs Analysis**
+- **Project Overview**
+- The Tableau Dashboard project involves visualizing the layoffs data using Tableau to create a dynamic and interactive dashboard. This dashboard highlights key insights derived from the cleaned layoffs dataset and allows the user to explore trends in layoffs by industry, location, funding stage, and more.
 
 ### **Key Steps**
 1. Bar Graph - Layoffs by Industry % Wise
-Visualized layoffs as a percentage of total layoffs by industry.
+- Visualized layoffs as a percentage of total layoffs by industry, providing an understanding of which industries were hit hardest.
+
 2. Map - Layoffs by Location
-Displayed layoffs by location, using bubbles to represent higher layoffs.
+- Displayed layoffs by location using a map. Larger bubbles represented higher layoffs in specific regions.
+
 3. Funding Stage Analysis Table
-Created a table to show how much funding was raised in each stage of the company lifecycle.
+- Created a table to show how much funding each company raised at different stages in their lifecycle. This helped visualize the financial background of companies undergoing layoffs.
+
 4. Line Graph - Funds Raised Month Wise
-Visualized the funds raised in millions month-wise using a line graph.
+- Visualized the funds raised in millions month-wise using a line graph to track trends over time.
+
+### **Dashboard Image**
+
+You can view the interactive version of the dashboard here:
+Tableau Public Dashboard - Layoffs Analysis
+
 ### **Conclusion**
-- The SQL Portfolio includes data cleaning using advanced SQL techniques, exploratory data analysis (EDA) with SQL queries, and a fully functional Tableau dashboard for visualizing key insights. The portfolio demonstrates a deep understanding of SQL for data manipulation and the ability to present findings through dynamic visualizations.
+- This project combines advanced SQL techniques for data cleaning and exploratory data analysis with Tableau’s powerful visualization capabilities. The portfolio demonstrates the ability to handle complex data manipulation tasks, uncover actionable insights, and present those insights dynamically through a fully functional Tableau dashboard.
+
+### **Conclusion of SQL Portfolio**
+- This SQL Portfolio includes comprehensive projects showcasing proficiency in Data Cleaning, Exploratory Data Analysis (EDA), and Data Visualization using Tableau. It demonstrates a strong command of SQL for data manipulation and the ability to create dynamic visualizations for effective communication of insights.
+---
+---
