@@ -7,8 +7,9 @@ This section highlights SQL-based projects, focusing on data cleaning, explorato
 This repository includes the following SQL-based projects:
 
 1. [Data Cleaning - Layoffs Data - Project Overview](#data-cleaning---layoffs-data---project-overview)
-2. [Exploratory Data Analysis (EDA) - Layoffs Data](#exploratory-data-analysis-eda---project-overview)  
-3. [Tableau Dashboard - Layoffs Analysis](#tableau-dashboard---project-overview)
+2. [Exploratory Data Analysis (EDA) - Layoffs Data - Project Overview](#exploratory-data-analysis-eda---layoffs-data---project-overview)
+3. [Tableau Dashboard - Layoffs Analysis - Project Overview](#tableau-dashboard---layoffs-analysis---project-overview)
+
 
 ---
 ---
@@ -141,8 +142,7 @@ FROM Rolling_Total;
 ---
 ---
 ## **Project 3:**
-## **Project 3: Tableau Dashboard - Layoffs Analysis**
-- **Project Overview**
+## **Tableau Dashboard - Layoffs Analysis - Project Overview**
 - The Tableau Dashboard project involves visualizing the layoffs data using Tableau to create a dynamic and interactive dashboard. This dashboard highlights key insights derived from the cleaned layoffs dataset and allows the user to explore trends in layoffs by industry, location, funding stage, and more.
 
 ### **Key Steps**
@@ -159,9 +159,10 @@ FROM Rolling_Total;
 - Visualized the funds raised in millions month-wise using a line graph to track trends over time.
 
 ### **Dashboard Image**
+![Layoffs Dashboard](image1/lf.png)
 
-You can view the interactive version of the dashboard here:
-Tableau Public Dashboard - Layoffs Analysis
+*You can view the interactive version of the dashboard here:*  
+[Tableau Public Dashboard - Layoffs Analysis](https://public.tableau.com/shared/HFTY7RZJX?:display_count=n&:origin=viz_share_link)
 
 ### **Conclusion**
 - This project combines advanced SQL techniques for data cleaning and exploratory data analysis with Tableau’s powerful visualization capabilities. The portfolio demonstrates the ability to handle complex data manipulation tasks, uncover actionable insights, and present those insights dynamically through a fully functional Tableau dashboard.
