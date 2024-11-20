@@ -6,7 +6,7 @@ This section highlights SQL-based projects, focusing on data cleaning, explorato
 ## **Projects Overview**  
 This repository includes the following SQL-based projects:
 
-1. [Data Cleaning - Layoffs Data](#data-cleaning---project-overview)  
+1. [Data Cleaning - Layoffs Data - Project Overview](#data-cleaning---layoffs-data---project-overview)
 2. [Exploratory Data Analysis (EDA) - Layoffs Data](#exploratory-data-analysis-eda---project-overview)  
 3. [Tableau Dashboard - Layoffs Analysis](#tableau-dashboard---project-overview)
 
